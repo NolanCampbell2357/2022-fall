@@ -13,11 +13,11 @@
 | A ⊃ B	| proper superset / strict superset | set A has more elements than set B | {1, 7, 9, 13, 15, 23} ⊃ {7, 13, 15, }
 | A ⊇ B	| superset | set A has more elements or equal to the set B | {1, 7, 9, 13, 15, 23} ⊃ {7, 13, 15, 21}
 | Ø	| empty set | Ø = { } | C = {Ø}
-| P (C)	power set | all subsets of C | C = {4,7}, P(C) = {{}, {4}, {7}, {4,7}} Given by 2s, s is number of elements in set C
+| P (C)	power set | all subsets of C | C = {4,7}, P(C) = {{}, {4}, {7}, {4,7}} Given by 2^s, s is number of elements in set C
 | A ⊅ B	| not superset | set X is not a superset of set Y | {1, 2, 5} ⊅{1, 6}
 | A = B	| equality | both sets have the same members | {7, 13,15} = {7, 13, 15}
-| A \ B or A-B | relative complement | objects that belong to A and not to B | {1, 9, 23}
-| Ac | complement | all the objects that do not belong to set A	| We know, U = {1, 2, 7, 9, 13, 15, 21, 23, 28, 30}, Ac = {2, 21, 28, 30}
+| A \ B or A-B | relative complement (difference) | objects that belong to A and not to B | A - B = {1, 9, 23}
+| A^c or - over A | complement | all the objects that do not belong to set A	| We know, U = {1, 2, 7, 9, 13, 15, 21, 23, 28, 30}, Ac = {2, 21, 28, 30}
 | A ∆ B	| symmetric difference | objects that belong to A or B but not to their intersection | A ∆ B = {1, 9, 21, 23}
 | a∈B | element of | set membership | B = {7, 13, 15, 21}, 13 ∈ B
 | (a,b)	| ordered pair | collection of 2 elements | (1, 2)
@@ -30,3 +30,40 @@
 | Z	| integer numbers set | Z= {…-3, -2, -1, 0, 1, 2, 3,…} | -6 ∈ Z
 | C	| complex numbers set | C= {z \| z=a+bi, -∞<a<∞,-∞<b<∞} | 6+2i ∈ C
 | R	| real numbers set | R= {x \| -∞ < x <∞} | 6.343434 ∈ R
+
+### General
+
+Sets are imutable (not changing) and use hashing in programming
+
+### Subset examples
+
+A = {1, 2, 3,4, 5, 6} B = {2, 4, 5} C = {1, 2, 3, 4 5}
+A ⊆ B = False
+A ⊆ C = False
+B ⊆ A = True
+Ø ⊆ A = True
+Ø ⊆ Ø = True
+
+### Sets as elements
+A = {} B = {A, {A}}
+
+A ⊆ B = False
+{A} ⊆ B = True
+{{A}} ⊆ B = True
+A ∈ B = True
+{A} ∈ B = True
+{{A}} ∈ B = False
+
+A = {1, {2, 3}, 4}
+{2, 3} ∈ A = True
+{2, 3} ⊆ A = False
+{4} ∈ A = False
+4 ∈ A = True
+
+### Cardinality and power set
+A = {1, 2, 3}
+|A| = 3
+P(A) = {{}, {1}, {2}, {3}, {1, 2}, {1, 3}, {2, 3}, {1, 2, 3}}
+|P(A)| = 8
+
+### Set Operations
