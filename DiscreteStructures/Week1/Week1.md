@@ -8,7 +8,7 @@
 | A ∪ B	| union | Elements that belong to set A or set B | A ∪ B = {1, 7, 9, 13, 15, 21, 23}
 | A ∩ B	| intersection | Elements that belong to both the sets, A and B	| A ∩ B = {7, 13, 15 }
 | A ⊆ B	| subset | subset has few or all elements equal to the set | {7, 15} ⊆ {7, 13, 15, 21}
-| A ⊄ B	| not subset | left set is not a subset of right set | {1, 23} ⊄ B
+| A ⊈ B	| not subset | left set is not a subset of right set | {1, 23} ⊄ B
 | A ⊂ B	| proper subset / strict subset | subset has fewer elements than the set | {7, 13, 15} ⊂ {1, 7, 9, 13, 15, 23}
 | A ⊃ B	| proper superset / strict superset | set A has more elements than set B | {1, 7, 9, 13, 15, 23} ⊃ {7, 13, 15, }
 | A ⊇ B	| superset | set A has more elements or equal to the set B | {1, 7, 9, 13, 15, 23} ⊃ {7, 13, 15, 21}
@@ -18,7 +18,7 @@
 | A = B	| equality | both sets have the same members | {7, 13,15} = {7, 13, 15}
 | A \ B or A-B | relative complement (difference) | objects that belong to A and not to B | A - B = {1, 9, 23}
 | A^c or - over A | complement | all the objects that do not belong to set A	| We know, U = {1, 2, 7, 9, 13, 15, 21, 23, 28, 30}, Ac = {2, 21, 28, 30}
-| A ∆ B	| symmetric difference | objects that belong to A or B but not to their intersection | A ∆ B = {1, 9, 21, 23}
+| A ⊕  B	| symmetric difference | objects that belong to A or B but not to their intersection | A ⊕  B = {1, 9, 21, 23}
 | a∈B | element of | set membership | B = {7, 13, 15, 21}, 13 ∈ B
 | (a,b)	| ordered pair | collection of 2 elements | (1, 2)
 | x∉A | not element of | no set membership | A = {1, 7, 8, 13, 15, 23}, 5 ∉ A
