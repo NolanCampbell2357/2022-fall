@@ -66,4 +66,24 @@ A = {1, 2, 3}
 P(A) = {{}, {1}, {2}, {3}, {1, 2}, {1, 3}, {2, 3}, {1, 2, 3}}
 |P(A)| = 8
 
-### Set Operations
+### Addition Principle
+
+#### Theorem 2
+|A ∪ B| = |A| + |B| - |A ∩ B|
+
+A = {a, b, c, d, e}, B = {c, e, f, h, k, m}
+A ∩ C = {c, e}
+5 + 6 - 2 = 9
+|A ∪ B| = 9
+
+A = {x | x is a systems programmer}, |A| = 25
+B = {x | x is a application programmer}, |B| = 40
+|A ∩ C| = 10
+
+|A ∪ B| = 25 + 40 - 10 = 55
+
+#### Theorem 3
+|A ∪ B ∪ C| = |A| + |B| + |C| - |A ∩ B| - |B ∩ C| - |A ∩ C| + |A ∩ B ∩ C|
+
+
+
