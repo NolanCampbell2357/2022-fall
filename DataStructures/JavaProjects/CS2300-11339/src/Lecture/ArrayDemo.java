@@ -1,4 +1,4 @@
-package apps;
+package Lecture;
 
 public class ArrayDemo {
 
