@@ -1,3 +1,8 @@
+/**
+ * Nolan Campbell
+ * ArrayPractice.java
+ * */
+
 package HW;
 
 public class ArrayPractice {
