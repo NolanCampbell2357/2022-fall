@@ -57,7 +57,7 @@ public class ArrayDemo {
 
         int[] result = new int[count];
 
-        for(int i = 0; i< result.length; i++) {
+        for (int i = 0; i < result.length; i++) {
             result[i] = (i + 1) * 10;
         }
 
@@ -72,10 +72,42 @@ public class ArrayDemo {
         result[0] = val;
 
         for (int i = 0; i < nums.length; i++) {
-            result[i+1] = nums[i];
+            result[i + 1] = nums[i];
         }
 
         return result;
+    }
+
+    static int linearSearch(int nums[], int val) {
+        // return the index of an elements equal to 'val'
+        // return -1 if 'val' is not found
+
+        for (int i = 0; i < nums.length; i++) {
+            if (val == nums[i]) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    static int binarySearch(int[] nums, int val) {
+        // return teh index of an elements equal to val
+        // return -1 if val is not found
+        // nums should be sorted in ascending order
+        int start = 0, end = nums.length - 1, mid;
+
+        while (start <= end) { // while the range has some elements
+            mid = (start + end) / 2;
+            if (val > nums[mid]) {
+                start = mid + 1;
+            } else if (val < nums[mid]){
+                end = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -118,7 +150,16 @@ public class ArrayDemo {
 
         //printArr(generateMultiplesOf10(10));
 
-        nums1 = new int[]{5, 10, 20, 30, 31};
-        printArr(insertAtTheBeginning(nums1, -10));
+//        nums1 = new int[]{5, 10, 20, 30, 31};
+//        printArr(insertAtTheBeginning(nums1, -10));
+
+//        System.out.println(linearSearch(new int[]{20, 30, 40}, 30));
+//        System.out.println(linearSearch(new int[]{20, 30, 40}, 50));
+//        System.out.println(linearSearch(generateMultiplesOf10(1000000), 15));
+
+        nums1 = generateMultiplesOf10(100);
+        printArr(nums1);
+        System.out.println();
+        System.out.println(binarySearch(nums1, 60));
     }
 }
