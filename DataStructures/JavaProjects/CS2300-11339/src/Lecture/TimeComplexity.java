@@ -35,5 +35,33 @@ public class TimeComplexity {
             // T(N) = c1*(N+1) + c2*N = c1*N +c1 + c2*N = (c1+c2)*N + c1 = O(N)
         }
 
+        int a=0, b=0;
+                                    // cost     times
+        for(int i = 0; i<N; i++){   // c1       N+1
+            a += 1;                 // c2       N
+            b += 1;                 // c3       N
+        } // T(N) = c1*(N + 1) + c2 * N + c3 * N = (c1 + c2 + c3)*N + c1 = O(N)
+
+                                            // cost     times
+        for(int i = 0; i < N; i++) {        // c1       N+1
+            for(int j = 0; j < N; j++) {    // c2       N*(N+1)
+                a+=1;                       // c3       N^2
+            }
+        } // T(N) = c1 * (N + 1) + c2 * (N*(N+1)) + c3 * (N^2)
+        // c1N + c1*1 + c2N^2 + c2N*1 + c3N^2
+        // (c2 + c3)N^2 + (c1 + c2)N + c1
+        // O(N^2)
+
+                                                // cost     times
+        for(int i = 0; i < N; i++) {            // c1       N+1
+            for(int j = 0; j < N; j++) {        // c2       N*(N+1)
+                for(int k = 0; k < N; k++) {    // c3       N*(N+1)^2
+                    a +=1;                      // c4       N^3
+                }
+            }
+        } // T(N) = c1 * (N + 1) + c2 * (N*(N+1)) + c3 * (N*N*(N+1)) + c4 * N^3
+        // c1N + c1 + c2N^2 + c2N + c3*N^3 + c3N^2 + c3N + c4N^3
+        // (c3 + c4)^3 + (c2 + c3)^2 + (c2 + c1)*N + c1
+        // O(N^3)
     }
 }
