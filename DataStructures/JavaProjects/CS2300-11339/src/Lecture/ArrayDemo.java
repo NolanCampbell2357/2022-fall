@@ -3,17 +3,28 @@ package Lecture;
 public class ArrayDemo {
 
     private static void printArr(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i] + " ");
+
+                                                // cost     times
+        for (int i = 0; i < nums.length; i++) { // c1       (nums.length+1)
+            System.out.print(nums[i] + " ");    // c2       nums.length
         }
+        System.out.println();                   // c3       1
+
+        // T(nums.length) = c1 * (nums.length + 1) + c2 * nums.length + c3
+        // (c1 + c2)nums.length + c1 + c3 = O(nums.length)
     }
 
     private static int[] copyArray(int[] nums) {
-        int[] copy = new int[nums.length];
-        for (int i = 0; i < copy.length; i++) {
-            copy[i] = nums[i];
+
+                                                    // cost     times
+        int[] copy = new int[nums.length];          // nums.length       1
+        for (int i = 0; i < copy.length; i++) {     // c2       copy.length + 1
+            copy[i] = nums[i];                      // c3       copy.length
         }
-        return copy;
+        return copy;                                // c4       1
+
+        // T(copy.length) = c1 * nums.length * 1 + c2 * (copy.length + 1) + c3 * copy.length + c4 * 1
+        // (c1 + c2 + c3)copy.length + c2 + c4 = O(copy.length)
     }
 
     private static void shiftLeft(int[] nums) {
@@ -81,14 +92,21 @@ public class ArrayDemo {
     static int linearSearch(int nums[], int val) {
         // return the index of an elements equal to 'val'
         // return -1 if 'val' is not found
-
-        for (int i = 0; i < nums.length; i++) {
-            if (val == nums[i]) {
-                return i;
+                                                    //          times       times
+                                                    // cost     best case   worst case
+        for (int i = 0; i < nums.length; i++) {     // c1       1           nums.length + 1
+            if (val == nums[i]) {                   // c2       1           nums.length
+                return i;                           // c3       1           0
             }
         }
+        return -1;                                  // c4       0           1
 
-        return -1;
+        // best
+        // T(nums.length) = c1 + c2 + c3 = O(1)
+
+        // worst
+        // T(nums.length) = c1 * (nums.length+1) + c2 * nums.length + c4 * 1
+        // (c1 + c2)nums.length + c1 + c4 = O(nums.length)
     }
 
     static int binarySearch(int[] nums, int val) {

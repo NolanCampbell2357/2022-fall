@@ -97,10 +97,22 @@ public class TimeComplexity {
         // O(N)
 
                                     // Cost     Times
-        for(int i=0; i<N; i++) {
-            if (i==10) {
-                break;
+        for(int i=0; i<N; i++) {    // c1       11
+            if (i==10) {            // c2       11
+                break;              // c3       1
             }
-        }
+        } // T(N) = c1*11 + c2*11 + c3* 1 = O(1)
+
+
+                                    //Cost      times
+        for(int i=0; i<N; i++) {    // c1       N+1
+            if(i<10) {              // c2       N
+                a += 1;             // c3       10
+            } else {
+                b+=1;               // c4       N-10
+            }
+        } // T(N) = c1 * (N+1) + c2 * N + c3 * 10 + c4 (N - 10)
+        // c1N + c1 + c2N + c3 * 10 + c4*N + c4 * -10
+        // (c1 + c4 + c2)N + c3 * 10 + c4 * -10 + c1 = O(N)
     }
 }
