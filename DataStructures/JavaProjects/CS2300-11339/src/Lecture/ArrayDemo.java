@@ -113,20 +113,29 @@ public class ArrayDemo {
         // return teh index of an elements equal to val
         // return -1 if val is not found
         // nums should be sorted in ascending order
-        int start = 0, end = nums.length - 1, mid;
 
-        while (start <= end) { // while the range has some elements
-            mid = (start + end) / 2;
-            if (val > nums[mid]) {
-                start = mid + 1;
-            } else if (val < nums[mid]){
-                end = mid - 1;
+
+        // time complexity                          // cost     best    worst
+        int start = 0, end = nums.length - 1, mid;  // c1       1       1
+        while (start <= end) {                      // c2       1       log(nums.length) + 1
+            mid = (start + end) / 2;                // c3       1       log(nums.length)
+            if (val > nums[mid]) {                  // c4       1       log(nums.length)
+                start = mid + 1;                    // c5       0       log(nums.length) / 2
+            } else if (val < nums[mid]){            // c6       1       log(nums.length) / 2
+                end = mid - 1;                      // c7       0       log(nums.length) / 2
             } else {
-                return mid;
+                return mid;                         // c8       1       0
             }
         }
-        return -1;
+        return -1;                                  // c9      0        1
     }
+
+    // Best
+    // T(nums.length) = c1 + c2 + c3 + c4 + c6 + c8 = O(1)
+
+    // T(nums.length) = c1 + c2 * (log(nums.length) + 1) + c3 * log(nums.length) + c4 * log(nums.length) + c5 * (log(nums.length) / 2) + c6 * ((nums.length) / 2) + c7 * log((nums.length) / 2) + c9
+    // (c2 + c3 + c4 + 0.5c5 + 0.5c6 + 0.5c7)log(nums.length) + c1 + c2 + c9
+    // O(log(nums.length))
 
     public static void main(String[] args) {
 //        int[] nums1;

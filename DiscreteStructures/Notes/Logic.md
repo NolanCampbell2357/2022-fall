@@ -160,7 +160,7 @@ q      : conclusion
 (p ⇒ q) ∧ (p) ⇒ (q) is a tautology. It is true no matter what p or q is. 
 Rule of interference is called modues ponens.
 
-If taces are lowered, then income rises
+If taxes are lowered, then income rises
 income rises
 taxes are lowered
 
@@ -169,3 +169,76 @@ q      : hypothesis
 p      : conclusion
 
 (p ⇒ q) ∧ (q) ⇒ (p) is not a tautology.
+
+Prove or disprove the staement that if z and y are real numbers
+
+(x^2 = y^2) ⇔ (x = y)
+
+counterexample: x = 3, y = -3
+
+(x^2 = y^2) ⇒ (x = y)
+
+
+(x = y) ⇒ (x^2 = y^2)
+
+Prove that the sum of two odd numbers is even
+
+Suppose that n is an integer and k is an integer such that n = 2k.
+By the definition of even, an integer divisible by 2 is even. n is divisible by two.
+
+Prove or disprove: The sum of five consecutive integers is divisible by 5.
+
+Suppose that m is an integer, and n is the sum of 5 consecutive integers such that 
+n = m + m+1 + m+2 + m+3 + m+4. Can be simplified as n = 5(m + 2). n is an integer divisible by five thus the sum of five consecutive numbers is divisible by 5.
+
+# 2.4 Mathmatical Induction
+
+Show that For all n >= 1.
+  P(n) = 1 + 2 + 3 + ... + n = (n(n+1))/2
+P = predicate
+
+Assume P(n) is true for n = k, then p(k) is true. 
+
+Show P(K + 1) is true
+
+((k(k + 1)) / 2) + (((k+1)*2) / 2) = (k(k+1) + 2(k+1))/2 = (2(k + 1)) / 2
+
+∀n >= n<sub>0</sub>, P(n) by mathmatical induction takes two steps
+
+Basis step: Show P(n<sub>0</sub>) is true
+Induction step: Show P(k) ⇒ P(k + 1)
+
+Show that for all n >= 1, 1^2 + 2^2 + ... + n^2 = ((n(n + 1)(2n + 1)) / 6)
+
+Basis step:
+
+n = 1
+1 = 1
+
+Induction step:
+
+Assume P(k) true, Show P(k+1) is true
+(k(k + 1)(2k + 1)) / 6 + ((k+1)^2 * 6) / 6 = (k(k + 1)(2k + 1) + 6(k + 1)^2) / 6
+
+(k + 1){(k(2k+1) + 6(k + 1))} / 6 = {2k^2 + k + 6k + 6} = {2k^2 + 7k + 6} = {2k(k + 2) + 3(k + 2)}
+= (k+2)(2k + 3)
+
+Show that for all n >= 1, n! >= 2^n-1
+
+Basis step
+n = 1
+1! = 1
+2^1-1 = 1
+
+Induction step:
+
+Assume P(k) true, show P(k+1) is true
+
+(k+1) * k! >= k+1 * 2^(k-1) >= 2 * 2^k-1 = 2^k
+
+
+extra
+1xxxxx * 3 = xxxxx1
+
+(10^5) + x = 1 + 10x
+x = ((10^5) - 1) / 9
