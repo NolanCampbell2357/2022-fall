@@ -235,10 +235,3 @@ Induction step:
 Assume P(k) true, show P(k+1) is true
 
 (k+1) * k! >= k+1 * 2^(k-1) >= 2 * 2^k-1 = 2^k
-
-
-extra
-1xxxxx * 3 = xxxxx1
-
-(10^5) + x = 1 + 10x
-x = ((10^5) - 1) / 9
