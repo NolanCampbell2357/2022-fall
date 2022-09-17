@@ -25,6 +25,19 @@ public class MyArray {
         numElements++;
     }
 
+    public void remove(int val) {
+
+        int idx = search(val);
+
+        if (idx == -1) {
+            return;
+        }
+
+        numElements--;
+        elements[idx] = elements[numElements];
+        elements[numElements] = 0;
+    }
+
     private void addElementIfNeeded() {
         if(isFull()) {
             addElement();
