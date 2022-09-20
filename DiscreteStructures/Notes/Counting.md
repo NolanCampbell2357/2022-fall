@@ -63,7 +63,7 @@ Ex: How many ways can a committee of three faculty members and two students be s
 
 7! = ((7 - 3)! * 3!) = 7 * 5 * 4 / 6
 
-Ex: Five fair counds are tossed and the results are recorded.
+Ex: Five fair coins are tossed and the results are recorded.
 
 How many difference sequences of heads and tails are possible?
 
@@ -84,3 +84,87 @@ How many of the sequences in part a have exactly three heads recorded?
 How many triangles are there in figure?
 
 <sub>4</sub>C<sub>2<sub>
+
+Ex. Name 5 celebs you like. If you can have three dates with one of them.
+
+How many ways are possible?
+<sub>5</sub>P<sub>3</sub> = 5! / (5 - 3)! = 60
+
+If repetition is allowed?
+<sub>7</sub>C<sub>3</sub> = 7! / ((7 - 3)! * 3!) = 7! / (4! * 3!) = (7 * 6 * 5) / 6 = 210 / 6
+
+## 3.4 Pigeonhole Principle
+
+If n pigeons are assigned to m pigeonholes, and m < n, then at least one pigeonhole contains two or more pigeons.
+
+Show that if any five numbers from 1 to 8 are chosen, then two of them will add to 9.
+
+<sub>8</sub>C<sub>5</sub>
+
+Proof by existence:
+{1, 8}, {2, 7}, {3, 6}, {4, 5}
+There are 4 pigeon holes and 5 pigeons meaning at least one pigeonhole has two or more pigeons. Thus numbers from 1 to 8 will add to 9.
+
+Consider a haxagon whose side lengths are 1 unit. Show that if any seven points are chosen in the region, then two of them must be not farther part then 1 unit.
+
+There are 6 pigeonholes and 7 pigeons.
+
+## 3.4 Elements of probability
+
+Consider an experiment consisting of tossing a six-sided die once and recording the number showing on the top face of the die.
+
+Outcomes: {1, 2, 3, 4, 5, 6}
+
+Event: set of outcomes described by statement.
+ex: The number on the top face of the die is 1. -> {1}
+ex. The number on the top face of the dies is odd. -> {1, 3, 5}
+
+
+
+Consider an experiment consisting of tossing a six-sided die twice and recording the sequence of numbers showing on the top face of the die after each toss.
+
+Outcomes: {(1, 1), (1, 2), ..., (6, 6)}
+
+Event:
+The sequence of number on the top face of the die is (1, 2).
+The sum of the numbers showing on the top faces is 8. {(2, 6), (3, 5), (4, 4)}
+
+Assigning Probabilities to Events.
+
+Let E be an event. p(E) is called the probability of event E. Likelihood that the event E will occur.
+
+Frequentist view of probability : frequency of occurence
+vs.
+Bayesian view of probability : degree of belief.
+
+Assigneing probabilities to Events.
+
+Let A be the set of all outcomes of an experiment.
+
+Axiom 1: 0 <= p(E) <= 1 for every event E in A
+Axiom 2: p(A) = 1 and p(Ø) = 0
+
+p(E) = |E| / |A| = total num of outcomes E / total num outcomes
+
+Choose four cards from a standard 52-card deck. 
+
+What is the probability that four kings will be chosen?
+
+<sub>48</sub>C<sub>1</sub> / <sub>52</sub>C<sub>4</sub>
+
+What about 5?
+
+<sub>48</sub>C<sub>1</sub> / <sub>52</sub>C<sub>5</sub>
+
+A box contains six red balls and four green balls. Four balls are selected at random from the box. 
+
+What is the probability that two of the selected balls will be red and two will be gree?
+(<sub>6</sub>C<sub>2</sub> * <sub>4</sub>C<sub>2</sub>) +  (<sub>6</sub>C<sub>1</sub> * <sub>4</sub>C<sub>3</sub>) + (<sub>6</sub>C<sub>3</sub> * <sub>4</sub>C<sub>1</sub>) / <sub>10</sub>C<sub>4</sub>
+
+What is the probability that no more than two of the balls are red?
+
+3 / <sub>10</sub>C<sub>4</sub>
+
+What is the probability that no more than three of the balls are red
+
+4 / <sub>10</sub>C<sub>4</sub>

@@ -25,6 +25,20 @@ public class MyArray {
         numElements++;
     }
 
+    public void addOrder(int idx, int val) {
+        // Insert 'val' at 'idx', Keep thins in the same order
+
+        addElementIfNeeded();
+
+        for(int i = numElements; i > idx; i--) {
+             elements[i] = elements[i-1];
+        }
+
+        elements[idx] = val;
+
+        numElements++;
+    }
+
     public void remove(int val) {
 
         int idx = search(val);
@@ -85,4 +99,46 @@ public class MyArray {
         }
         return -1;
     }
+
+    // max() or min()
+    public int max() {
+        // Return maximum value in 'elements'
+
+        int max = elements[0];
+        for(int i = 1; i < numElements; i++) {
+            if(elements[i] > max) {
+                max = elements[i];
+            }
+        }
+        return max;
+    }
+
+    public int min() {
+        // Return minimum value in 'elements'
+        int min = elements[0];
+        for(int i = 1; i < numElements; i++) {
+            if(elements[i] < min) {
+                min = elements[i];
+            }
+        }
+        return min;
+    }
+
+    public void sort() {
+        // Make change to 'elements' so that numbers are in ascending order
+
+        int swap;
+
+        for(int i = 0; i < numElements - 1; i++) {
+            for (int j = i + 1; j < numElements; j++) {
+                if (elements[i] > elements[j]) {
+                    swap = elements[i];
+                    elements[i] = elements[j];
+                    elements[j] = swap;
+                }
+            }
+        }
+    }
+
+
 }
