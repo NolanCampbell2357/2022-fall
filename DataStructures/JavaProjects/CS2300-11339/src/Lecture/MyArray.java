@@ -19,18 +19,18 @@ public class MyArray {
 
     public void add(int val) {
 
-        addElementIfNeeded();
+        addElementIfNeeded(); // O(Elements.length) or O(1)
 
-        elements[numElements] = val;
-        numElements++;
-    }
+        elements[numElements] = val; // c1, 1
+        numElements++;               // c2, 1
+    } // O(Elements.length)
 
-    public void addOrder(int idx, int val) {
+    public void addOrder(int idx, int val) { // Best: O(1), Worst: O(elements.length)
         // Insert 'val' at 'idx', Keep thins in the same order
 
-        addElementIfNeeded();
+        addElementIfNeeded(); // O(elements.length)
 
-        for(int i = numElements; i > idx; i--) {
+        for(int i = numElements; i > idx; i--) { // O(1) ~ O(numElements)
              elements[i] = elements[i-1];
         }
 
@@ -39,9 +39,9 @@ public class MyArray {
         numElements++;
     }
 
-    public void remove(int val) {
+    public void remove(int val) { // Best: O(1), Worst O(N)
 
-        int idx = search(val);
+        int idx = search(val); // O(1) ~ O(N)
 
         if (idx == -1) {
             return;
@@ -49,12 +49,11 @@ public class MyArray {
 
         numElements--;
         elements[idx] = elements[numElements];
-        elements[numElements] = 0;
     }
 
     private void addElementIfNeeded() {
-        if(isFull()) {
-            addElement();
+        if(isFull()) {    // O(1)
+            addElement(); // O(elements.length)
         }
     }
 
@@ -63,9 +62,9 @@ public class MyArray {
     }
 
     private void addElement() {
-            int[] newArr = new int[elements.length * 2];
+            int[] newArr = new int[elements.length * 2]; // O(elements.length), 1
 
-            for (int i = 0; i < numElements; i++) {
+            for (int i = 0; i < numElements; i++) {      // c1, O(numElements)
                 newArr[i] = elements[i];
             }
 
@@ -76,7 +75,7 @@ public class MyArray {
         return linearSearch(val);
     }
 
-    private int linearSearch(int val) {
+    private int linearSearch(int val) { // Best: O(1), Worst: O(numElements)
         for (int i = 0; i < numElements; i++) {
             if (val == elements[i]) {
                 return i;
@@ -124,7 +123,7 @@ public class MyArray {
         return min;
     }
 
-    public void sort() {
+    public void sort() { // O(N^2)
         // Make change to 'elements' so that numbers are in ascending order
 
         int swap;
@@ -136,6 +135,26 @@ public class MyArray {
                     elements[i] = elements[j];
                     elements[j] = swap;
                 }
+            }
+        }
+    }
+
+    public int[] getPositiveElements() {
+        int positiveCount = 0;
+
+        for(int i = 0; i < numElements; i++){
+            if (elements[i] > 0) {
+                positiveCount++;
+            }
+        }
+
+        int[] newArr = new int[positiveCount];
+
+
+        for(int i = 0, j = 0; i < numElements; i++){
+            if (elements[i] > 0) {
+                newArr[j] = elements[i];
+                j++;
             }
         }
     }
