@@ -1,12 +1,12 @@
 package Lecture;
 
-public class MyArray {
+public class MyArrayForDouble {
     int numElements;
-    int[] elements;
+    double[] elements;
 
-    public MyArray() {
+    public MyArrayForDouble() {
         numElements = 0;
-        elements = new int[1];
+        elements = new double[1];
     }
 
     public void printArr() {
@@ -17,7 +17,7 @@ public class MyArray {
         System.out.println();
     }
 
-    public void add(int val) {
+    public void add(double val) {
 
         addElementIfNeeded(); // O(Elements.length) or O(1)
 
@@ -25,7 +25,7 @@ public class MyArray {
         numElements++;               // c2, 1
     } // O(Elements.length)
 
-    public void addOrder(int idx, int val) { // Best: O(1), Worst: O(elements.length)
+    public void addOrder(int idx, double val) { // Best: O(1), Worst: O(elements.length)
         // Insert 'val' at 'idx', Keep thins in the same order
 
         addElementIfNeeded(); // O(elements.length)
@@ -39,7 +39,7 @@ public class MyArray {
         numElements++;
     }
 
-    public void remove(int val) { // Best: O(1), Worst O(N)
+    public void remove(double val) { // Best: O(1), Worst O(N)
 
         int idx = search(val); // O(1) ~ O(N)
 
@@ -62,7 +62,7 @@ public class MyArray {
     }
 
     private void addElement() {
-            int[] newArr = new int[elements.length * 2]; // O(elements.length), 1
+            double[] newArr = new double[elements.length * 2]; // O(elements.length), 1
 
             for (int i = 0; i < numElements; i++) {      // c1, O(numElements)
                 newArr[i] = elements[i];
@@ -71,11 +71,11 @@ public class MyArray {
             elements = newArr;
     }
 
-    public int search(int val) {
+    public int search(double val) {
         return linearSearch(val);
     }
 
-    private int linearSearch(int val) { // Best: O(1), Worst: O(numElements)
+    private int linearSearch(double val) { // Best: O(1), Worst: O(numElements)
         for (int i = 0; i < numElements; i++) {
             if (val == elements[i]) {
                 return i;
@@ -84,7 +84,7 @@ public class MyArray {
         return -1;
     }
 
-    public int binarySearch(int val) {
+    public int binarySearch(double val) {
         int start = 0, end = numElements - 1, mid;
         {
             mid = (start + end) / 2;
@@ -100,10 +100,10 @@ public class MyArray {
     }
 
     // max() or min()
-    public int max() {
+    public double max() {
         // Return maximum value in 'elements'
 
-        int max = elements[0];
+        double max = elements[0];
         for(int i = 1; i < numElements; i++) {
             if(elements[i] > max) {
                 max = elements[i];
@@ -112,9 +112,9 @@ public class MyArray {
         return max;
     }
 
-    public int min() {
+    public double min() {
         // Return minimum value in 'elements'
-        int min = elements[0];
+        double min = elements[0];
         for(int i = 1; i < numElements; i++) {
             if(elements[i] < min) {
                 min = elements[i];
@@ -126,7 +126,7 @@ public class MyArray {
     public void sort() { // O(N^2)
         // Make change to 'elements' so that numbers are in ascending order
 
-        int swap;
+        double swap;
 
         for(int i = 0; i < numElements - 1; i++) {
             for (int j = i + 1; j < numElements; j++) {
@@ -139,7 +139,7 @@ public class MyArray {
         }
     }
 
-    public int[] getPositiveElements() {
+    public double[] getPositiveElements() {
         int positiveCount = 0;
 
         for(int i = 0; i < numElements; i++){
@@ -148,7 +148,7 @@ public class MyArray {
             }
         }
 
-        int[] newArr = new int[positiveCount];
+        double[] newArr = new double[positiveCount];
 
 
         for(int i = 0, j = 0; i < numElements; i++){
@@ -157,6 +157,8 @@ public class MyArray {
                 j++;
             }
         }
+
+        return newArr;
     }
 
 
