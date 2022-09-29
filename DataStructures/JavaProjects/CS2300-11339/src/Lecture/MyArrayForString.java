@@ -77,7 +77,7 @@ public class MyArrayForString {
 
     private int linearSearch(String val) { // Best: O(1), Worst: O(numElements)
         for (int i = 0; i < numElements; i++) {
-            if (val == elements[i]) {
+            if(elements[i].compareTo(val) == 0) {
                 return i;
             }
         }

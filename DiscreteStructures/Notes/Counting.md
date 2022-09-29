@@ -168,3 +168,67 @@ What is the probability that no more than two of the balls are red?
 What is the probability that no more than three of the balls are red
 
 4 / <sub>10</sub>C<sub>4</sub>
+
+## 3.5 Recurrence Relations
+
+Relation is the recursive function of a sequence
+
+1, 1, 2, 3, 5, 8, 13, 21, ....
+
+Recursive: f(n) = f(n-1) + f(n-2), n(1) = 1
+Explicit: ?
+
+Let A = {0, 1}
+What is the number of strings of length n in A* that do not containd adjacent 0's
+
+for n = 1: "0", "1"
+for n = 2: "01", "10", "11"
+for n = 3: "010", "101", "110", "011", "111"
+for n = 4: 8 possible
+for n = 5: 13 possible
+
+A recursive formula is a linear homogeneous relation of degree k
+
+a<sub>n</sub> = r<sub>1</sub>a<sub>n-1</sub> + r<sub>2</sub>a<sub>n-2</sub> + ... + r<sub>k</sub>a<sub>n-k</sub>
+
+x<sup>k</sup> = r<sub>1</sub>x<sup>k-1</sup> + r<sub>2</sub>x<sup>k-2</sup> + ... r<sub>k</sub>x<sup>0</sup>
+
+If the equations has two distinct roots s<sub>1</sub> and s<sub>2</sub>, then a<sub>2</sub> = us<sub>1</sub><sup>n</sup> + vs<sub>2</sub><sup>n</sup>
+
+c<sub>n</sub> = 3c<sub>n-1</sub> - 2c<sub>n-2</sub>, with c<sub>1</sub> = 5 and c<sub>2</sub> = 3
+
+c<sub>3</sub> = 3(3) - 2(5) = -1
+
+u + 2v = 5
+u + 4v = 3
+
+u + 2v = 5
++
+-u - 4v = -3
+=
+-2v = 2
+v = -1
+
+u + 2(-1) = 5
+u = 3
+
+
+d<sub>n</sub> = 2d<sub>n-1</sub> - d<sub>n-2</sub>, d<sub>1</sub> = 1.5, d<sub>2</sub> = 3
+
+x^2 = 2x - 1
+x^2 - 2x + 1 = 0
+(x - 1)^2 = 0
+
+d<sub>n</sub> = u * 1^n + v*n*1^n
+
+d<sub>1</sub> = u * 1^1 + v*1*1^1 = 1.5
+d<sub>2</sub> = u * 1^2 + v*2*1^2
+
+u + v = 1.5
+u + 2v = 3
+
+-v = -1.5
+v = 1.5
+u = 0
+
+explicit = 0 + 1.5n

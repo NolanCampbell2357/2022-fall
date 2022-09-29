@@ -2,24 +2,41 @@ package Lecture;
 
 public class MyArrayDemo {
     public static void main(String[] args) {
-        MyArrayForString nums1 = new MyArrayForString();
-        nums1.printArr();
+        MyArray<String> str = new MyArray<String>();
+        str.printArr();
 
-        nums1.add("a");
-        nums1.add("z");
-        nums1.add("xc");
-        nums1.add("abc");
-        nums1.add("cd");
-        nums1.add("bc");
-        nums1.add("z");
-        nums1.add("zz");
+        str.add("a");
+        str.add("z");
+        str.add("xc");
+        str.add("abc");
+        str.add("A");
+        str.add("bc");
+        str.add("z");
+        str.add("zz");
 
-        nums1.sort();
-        nums1.printArr();
+        str.sort();
+        str.printArr();
 
-        nums1.addOrder(4, "cat");
+        str.addOrder(4, "cat");
 
-        nums1.printArr();
+        str.printArr();
+
+        System.out.println(str.max());
+
+        MyArray<Double> myDouble = new MyArray<Double>();
+
+        myDouble.add(33.2);
+        myDouble.add(23.23);
+        myDouble.add(44.2);
+
+        myDouble.printArr();
+
+        myDouble.sort();
+
+        myDouble.addOrder(1, 11.1);
+        myDouble.printArr();
+        myDouble.remove(23.23);
+        myDouble.printArr();
 
 //        nums1.printArr();
 //
