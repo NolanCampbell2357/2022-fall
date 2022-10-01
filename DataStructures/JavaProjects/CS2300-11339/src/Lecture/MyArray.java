@@ -78,7 +78,7 @@ public class MyArray<E> {
 
     private int linearSearch(E val) { // Best: O(1), Worst: O(numElements)
         for (int i = 0; i < numElements; i++) {
-            if(((Comparable)elements[i]).compareTo(val) == 0) {
+            if(elements[i] == val) {
                 return i;
             }
         }
@@ -105,6 +105,7 @@ public class MyArray<E> {
         // Return maximum value in 'elements'
 
         E max = elements[0];
+
         for(int i = 1; i < numElements; i++) {
             if(((Comparable)elements[i]).compareTo(max) > 0) {
                 max = elements[i];

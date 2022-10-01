@@ -2,41 +2,58 @@ package Lecture;
 
 public class MyArrayDemo {
     public static void main(String[] args) {
-        MyArray<String> str = new MyArray<String>();
-        str.printArr();
+        MyArray<Circle> circles = new MyArray<>();
 
-        str.add("a");
-        str.add("z");
-        str.add("xc");
-        str.add("abc");
-        str.add("A");
-        str.add("bc");
-        str.add("z");
-        str.add("zz");
 
-        str.sort();
-        str.printArr();
+        Circle c2 = new Circle(5);
 
-        str.addOrder(4, "cat");
+        circles.add(new Circle(10));
+        circles.add(c2);
+        circles.add(new Circle(10));
 
-        str.printArr();
+        circles.printArr();
 
-        System.out.println(str.max());
+        System.out.println(circles.search(c2));
+        System.out.println(circles.search(new Circle(5)));
 
-        MyArray<Double> myDouble = new MyArray<Double>();
+        circles.sort();
+        circles.printArr();
 
-        myDouble.add(33.2);
-        myDouble.add(23.23);
-        myDouble.add(44.2);
+        // MyArray<String> str = new MyArray<String>();
+        // str.printArr();
 
-        myDouble.printArr();
+        // str.add("a");
+        // str.add("z");
+        // str.add("xc");
+        // str.add("abc");
+        // str.add("A");
+        // str.add("bc");
+        // str.add("z");
+        // str.add("zz");
 
-        myDouble.sort();
+        // str.sort();
+        // str.printArr();
 
-        myDouble.addOrder(1, 11.1);
-        myDouble.printArr();
-        myDouble.remove(23.23);
-        myDouble.printArr();
+        // str.addOrder(4, "cat");
+
+        // str.printArr();
+
+        // System.out.println(str.max());
+
+        // MyArray<Double> myDouble = new MyArray<Double>();
+
+        // myDouble.add(33.2);
+        // myDouble.add(23.23);
+        // myDouble.add(44.2);
+
+        // myDouble.printArr();
+
+        // myDouble.sort();
+
+        // myDouble.addOrder(1, 11.1);
+        // myDouble.printArr();
+        // myDouble.remove(23.23);
+        // myDouble.printArr();
 
 //        nums1.printArr();
 //
