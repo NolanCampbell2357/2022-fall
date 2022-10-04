@@ -1,23 +1,52 @@
 package Lecture;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class MyArrayDemo {
     public static void main(String[] args) {
-        MyArray<Circle> circles = new MyArray<>();
 
+        ArrayList<Circle> list = new ArrayList<Circle>();
 
         Circle c2 = new Circle(5);
 
-        circles.add(new Circle(10));
-        circles.add(c2);
-        circles.add(new Circle(10));
+        list.add(c2);
+        list.add(new Circle(10));
+        list.add(new Circle(1));
 
-        circles.printArr();
+        System.out.println(list);
 
-        System.out.println(circles.search(c2));
-        System.out.println(circles.search(new Circle(5)));
+        System.out.println(list.indexOf(c2));
 
-        circles.sort();
-        circles.printArr();
+        list.sort((a, b)-> a.compareTo(b));
+
+        System.out.println(list);
+
+        list.sort(Comparator.reverseOrder());
+
+        System.out.println(list);
+
+        Collections.sort(list);
+
+        System.out.println(list);
+
+        // MyArray<Circle> circles = new MyArray<>();
+
+
+        // Circle c2 = new Circle(5);
+
+        // circles.add(new Circle(10));
+        // circles.add(c2);
+        // circles.add(new Circle(10));
+
+        // circles.printArr();
+
+        // System.out.println(circles.search(c2));
+        // System.out.println(circles.search(new Circle(5)));
+
+        // circles.sort();
+        // circles.printArr();
 
         // MyArray<String> str = new MyArray<String>();
         // str.printArr();
