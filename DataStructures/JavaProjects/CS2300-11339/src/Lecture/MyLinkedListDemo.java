@@ -12,5 +12,26 @@ public class MyLinkedListDemo {
         nums1.printLinkedList();
 
         System.out.println(nums1.search(30));
+
+        nums1.repeatEach();
+        nums1.printLinkedList();
+
+        // nums1.remove(30);
+        // nums1.printLinkedList();
+    
+        // nums1.remove(10);
+        // nums1.printLinkedList();
+
+        // nums1.remove(10);
+        // nums1.printLinkedList();
+
+        // nums1.remove(40);
+        // nums1.printLinkedList();
+
+        // nums1.remove(20);
+        // nums1.printLinkedList();
+
+        // nums1.remove(40);
+        // nums1.printLinkedList();
     }
 }
