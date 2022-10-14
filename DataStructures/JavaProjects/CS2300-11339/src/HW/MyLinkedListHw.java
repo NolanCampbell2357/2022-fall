@@ -1,3 +1,8 @@
+/**
+ * Nolan Campbell
+ * MyLinkedListHW.java
+ */
+
 package HW;
 
 public class MyLinkedListHw<E> {
