@@ -1,5 +1,7 @@
 package Lecture;
 
+import java.util.Arrays;
+
 public class RecursionDemo {
     static int factorial(int n) {
         System.out.printf("Factorial(%d)\n", n);
@@ -34,10 +36,64 @@ public class RecursionDemo {
         return a == b ? b : a + sumFromTo(a+1, b) ;
     }
 
+    static int power(int a, int b) {
+        // eg) power(2, 3) returns 8 (= 2 * 2 * 2)
+
+        return b == 0 ? 1 : a * power(a, b-1);
+    }
+
+    static int sumArray(int[] nums) {
+        // return the sum of all numbers in the array
+        // eg) sumArray({2, 5, 4}) return 11
+
+        // if(nums.length == 0) {
+        //     return 0;
+        // }
+
+        // int[] copy = new int[nums.length-1];
+        
+        // for(int i = 0; i < copy.length; i++) {
+        //     copy[i] = nums[i+1];
+        // }
+        //return nums[0] + sumArray(copy);
+
+        //return nums[0] + sumArray(Arrays.copyOfRange(nums, 1, nums.length));
+
+        return sumArrayHelper(nums, 0);
+    }
+
+    static int sumArrayHelper(int[] nums, int start) {
+        return start == nums.length ? 0 : nums[start] + sumArrayHelper(nums, start+1);
+    }
+
+    static int countPositive(int[] nums) {
+        // return the number of positive elements in the array
+        return countPositiveHelper(nums, 0);
+    }
+
+    static int countPositiveHelper(int[] nums, int start) {
+
+        if(start == nums.length) {
+            return 0;
+        }
+
+        
+        return (nums[start] > 0 ? 1 : 0) + countPositiveHelper(nums, start+1);
+    }
+
     public static void main(String[] args) {
         System.out.println(factorial(4));
         System.out.println(sumUpTo(5));
 
         System.out.println(sumFromTo(1, 5));
+
+        System.out.println(power(2, 3));
+        System.out.println(power(2, 0));
+
+        int[] nums = {1, 2, 3, 4};
+
+        System.out.println(sumArray(nums));
+
+        System.out.println(countPositive(new int[]{2, -1, 3, -2, 5}));
     }
 }
