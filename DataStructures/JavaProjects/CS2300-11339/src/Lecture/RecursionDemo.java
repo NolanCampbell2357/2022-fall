@@ -81,6 +81,33 @@ public class RecursionDemo {
         return (nums[start] > 0 ? 1 : 0) + countPositiveHelper(nums, start+1);
     }
 
+    static int sumLinkedList(SLLNode<Integer> node) {
+        return (node == null ? 0 : node.info + sumLinkedList(node.next()));
+    }
+
+    static int countPositive(SLLNode<Integer> node) {
+        if(node == null) {
+            return 0;
+        }
+        return (node.info % 2 == 0 ? 1 : 0) + countPositive(node.next());
+    }
+
+    static SLLNode<Integer> positiveOnly(SLLNode<Integer> node) {
+        // Make change to the list and keep only positive elements
+
+        if(node == null) {
+            return null;
+        }
+
+        if(node.info > 0) {
+            node.setNext(positiveOnly(node.next()));
+            return node;
+        } else {
+            return positiveOnly(node.next());
+        }
+
+    }
+ 
     public static void main(String[] args) {
         System.out.println(factorial(4));
         System.out.println(sumUpTo(5));
@@ -95,5 +122,14 @@ public class RecursionDemo {
         System.out.println(sumArray(nums));
 
         System.out.println(countPositive(new int[]{2, -1, 3, -2, 5}));
+
+        System.out.println(sumLinkedList(SLLNode.generateLL(5)));
+
+        System.out.println(countPositive(SLLNode.generateLL(10)));
+
+        
+        SLLNode<Integer> node = SLLNode.generateLL(3, 2, -5, 6, 7, -4, 10);
+        node = positiveOnly(node);
+        SLLNode.<Integer>printLinkedList(node);
     }
 }
