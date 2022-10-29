@@ -9,10 +9,16 @@ public class MyQueue<E> implements QueueInterface<E>{
     public MyQueue() {
         elements = (E[])new Object[5];
         numElements = 0;
+        front = 0;
+        rear = elements.length-1;
     }
 
     @Override
     public void enqueue(E val) {
+        if(isEmpty()) {
+            front = 0;
+        }
+        addElementIfNeeded();
         rear = (rear+1) % elements.length; 
         elements[rear] = val;
         numElements++;
@@ -20,11 +26,14 @@ public class MyQueue<E> implements QueueInterface<E>{
 
     @Override
     public E dequeue() {
+        if(isEmpty()) {
+            return null;
+        }
+
         E val = elements[front];
-
-        front = front+1 == elements.length ? 0 : front+1;
-
+        front = front+1 % elements.length;
         numElements--;
+
         return val;
     }
 
@@ -38,10 +47,14 @@ public class MyQueue<E> implements QueueInterface<E>{
         return numElements == elements.length;
     }
 
+    private boolean isEmpty() {
+        return numElements == 0;
+    }
+
     private void addElement() {
             E[] newArr = (E[]) new Object[elements.length * 2]; 
 
-            for (int i = front, j=0; j < numElements; i=(i+1)%numElements, j++) { 
+            for (int i = front, j=0; j < numElements; i=(i+1)%elements.length, j++) { 
                 newArr[j] = elements[i];
             }
 
