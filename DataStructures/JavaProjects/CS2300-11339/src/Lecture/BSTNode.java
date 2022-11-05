@@ -10,25 +10,53 @@ public class BSTNode<E> {
         right = null;
     }
 
-    void preOrder() {
-
+    public void preOrder() {
+        preOrder(this);
     }
 
-    void interOrder() {
-        interOrder(this);
-    }
-
-    void interOrder(BSTNode<E> root) {
-        if(root == null) {
+    public void preOrder(BSTNode<E> node) {
+        if (node == null) {
             return;
         }
 
-        interOrder(root.left);
-        System.out.print(root.info + ", ");
-        interOrder(root.right);
+        System.out.print(node.info + ", ");
+        preOrder(node.left);
+        preOrder(node.right);
     }
 
-    void postOrder() {
+    public void interOrder() {
+        interOrder(this);
+    }
 
+    void interOrder(BSTNode<E> node) {
+        if (node == null) {
+            return;
+        }
+
+        interOrder(node.left);
+        System.out.print(node.info + ", ");
+        interOrder(node.right);
+    }
+
+    public void postOrder() {
+        postOrder(this);
+    }
+
+    void postOrder(BSTNode<E> node) {
+        if (node == null) {
+            return;
+        }
+
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(node.info + ", ");
+    }
+
+    static int sumAll(BSTNode<Integer> node) {
+        if(node == null) {
+            return 0;
+        }
+
+        return node.info + sumAll(node.left) + sumAll(node.right);
     }
 }
