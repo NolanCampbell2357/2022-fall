@@ -10,27 +10,27 @@ public class MyBST<E> {
             return;
         }
 
-        BSTNode<E> node = root, parent = null;
+        // BSTNode<E> node = root, parent = null;
 
-        while(node != null) {
-            parent = node;
+        // while(node != null) {
+        //     parent = node;
 
-            if(((Comparable)val).compareTo(node.info) <= 0) {
-                node = node.left;
-            } else {
-                node = node.right;
+        //     if(((Comparable)val).compareTo(node.info) <= 0) {
+        //         node = node.left;
+        //     } else {
+        //         node = node.right;
 
-            }
-        }
-        BSTNode<E> newNode = new BSTNode<E>(val);
+        //     }
+        // }
+        // BSTNode<E> newNode = new BSTNode<E>(val);
 
-        if(((Comparable)val).compareTo(parent.info) <= 0) {
-            parent.left = newNode;
-        } else {
-            parent.right = newNode;
-        }
+        // if(((Comparable)val).compareTo(parent.info) <= 0) {
+        //     parent.left = newNode;
+        // } else {
+        //     parent.right = newNode;
+        // }
 
-        //addHelper(root, val);
+        addHelper(root, val);
     }
 
     private void addHelper(BSTNode<E> node, E val) {
@@ -54,28 +54,37 @@ public class MyBST<E> {
     }
 
     public void remove(E val) {
-        if(root == null) {
-            return;
-        }
-
-        removeHelper(root, val);
+        root = removeHelper(root, val);
     }
 
-    public void removeHelper(BSTNode<E> node, E val) {
-        if(node.left != null && ((Comparable)val).compareTo(node.left.info) < 0) {
-            if(val.equals(node.left.info)) {
-                node.left = null;
-                return;
-            }
-            removeHelper(node.left, val);
-        } else if(node.right != null) {
-            if(val.equals(node.left.info)) {
-                node.right = null;
-                return;
-            }
-            removeHelper(node.right, val);
+    public BSTNode removeHelper(BSTNode<E> node, E val) {
+
+        if(node == null) {
+            return null;
         }
-        return;
+
+        if(((Comparable)val).compareTo(node.info) < 0) {
+            node.left = removeHelper(node.left, val);
+        } else if (((Comparable)val).compareTo(node.info) > 0){
+            node.right = removeHelper(node.right, val);
+        } else {
+            if(node.left == null && node.right == null) {
+                return null;
+            }
+
+            if(node.left == null) {
+                return node.right;
+            } else if (node.right == null){
+                return node.left;
+            }
+
+            return maxHelper(node.left); 
+            //search and return
+        }
+    }
+
+    E maxHelper(BSTNode<E> node) {
+
     }
 
     public BSTNode<E> search(E val) {
