@@ -68,23 +68,31 @@ public class MyBST<E> {
         } else if (((Comparable)val).compareTo(node.info) > 0){
             node.right = removeHelper(node.right, val);
         } else {
+            // No children
             if(node.left == null && node.right == null) {
                 return null;
             }
 
+            // One child
             if(node.left == null) {
                 return node.right;
             } else if (node.right == null){
                 return node.left;
             }
 
-            return maxHelper(node.left); 
-            //search and return
+            // Two children
+            E searchVal = maxHelper(node.left);
+            node.info = searchVal;
+            node.left = removeHelper(node.left, searchVal);
         }
+        return node; 
     }
 
     E maxHelper(BSTNode<E> node) {
-
+        if(node.right == null) {
+            return node.info;
+        }
+        return minimumHelper(node.right);
     }
 
     public BSTNode<E> search(E val) {
@@ -106,6 +114,10 @@ public class MyBST<E> {
             return searchHelper(node.right, val);
 
         }
+    }
+
+    public E maximum() {
+        return maxHelper(root);
     }
 
     public E minimum() {

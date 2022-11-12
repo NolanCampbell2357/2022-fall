@@ -19,7 +19,13 @@ public class MyBSTDemo {
         System.out.println(tr1.search(15));
         tr1.print();
 
+        tr1.remove(7);
+        tr1.print();
+
         tr1.remove(30);
+        tr1.print();
+
+        tr1.remove(20);
         tr1.print();
     }
 }
