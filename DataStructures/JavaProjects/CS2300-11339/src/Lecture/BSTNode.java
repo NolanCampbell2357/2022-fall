@@ -59,4 +59,8 @@ public class BSTNode<E> {
 
         return node.info + sumAll(node.left) + sumAll(node.right);
     }
+
+    public String toString() {
+        return "BSTNode("+info+")";
+    }
 }
