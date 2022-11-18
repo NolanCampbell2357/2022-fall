@@ -1,3 +1,8 @@
+/*
+ * Nolan Campbell
+ * HashPractive.java
+ */
+
 package HW;
 
 import java.util.Arrays;
