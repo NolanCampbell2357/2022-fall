@@ -10,16 +10,16 @@ public class MyMaxHeap<E> implements QueueInterface<E> {
         numElements = 0;
     }
 
-    int left(int i) {
+    private int left(int i) {
         return 2*i+1;
     }
 
-    int right(int i) {
+    private int right(int i) {
         return 2*i+2;
     }
 
-    int parent(int i) {
-        return 2*i-1;
+    private int parent(int i) {
+        return (i-1)/2;
     }
 
     @Override
@@ -50,8 +50,39 @@ public class MyMaxHeap<E> implements QueueInterface<E> {
 
     @Override
     public E dequeue() {
-        // TODO Auto-generated method stub
-        return null;
+        E t = elements[0];
+
+        elements[0] = elements[numElements-1];
+        numElements--;
+
+        reheapDown(0);
+
+        return t;
+    }
+
+    void reheapDown(int i) {
+        // Compare your value vs. left child and right child
+
+        if(i >= numElements) {
+            return;
+        }
+
+        int l = left(i);
+        int r = right(i);
+        int largestIdx = i;
+        if(l < numElements && ((Comparable)elements[largestIdx]).compareTo(elements[l]) < 0) {
+            largestIdx = l;
+        } 
+        if (r < numElements && ((Comparable)elements[largestIdx]).compareTo(elements[r]) < 0) {
+            largestIdx = r;
+        }
+
+        if(largestIdx != i) {
+            E swap = elements[largestIdx];
+            elements[largestIdx] = elements[i];
+            elements[i] = swap;
+            reheapDown(largestIdx);
+        }
     }
 
     private void addElementIfNeeded() {
@@ -72,5 +103,13 @@ public class MyMaxHeap<E> implements QueueInterface<E> {
             }
 
             elements = newArr;
+    }
+
+    public void printQueue() {
+        System.out.print("printQueue(): ");
+        for(int i = 0; i < numElements; i++) {
+            System.out.print(elements[i] + ((i == numElements-1) ? "\n" : ", "));
+        }
+        System.out.println();
     }
 }
